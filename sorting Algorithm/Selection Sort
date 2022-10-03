@@ -1,0 +1,51 @@
+void selectionSort()
+{
+    int n;
+    n=5;
+    int arr[n]={5,4,3,2,1};
+    for(int i=0; i<n-1; i++)
+    {
+
+        for(int j=i+1; j<n; j++)
+        {
+
+            if(arr[j]<arr[i])
+            {
+                swap(arr[j],arr[i]);
+            }
+        }
+    }
+    for(int i=0; i<n; i++)
+        cout<<arr[i]<<" ";
+
+
+}
+void stableSelectionSort()
+{
+int n=6;
+int arr[]={6,5,4,3,2,1};
+for(int i=0; i<n-1; i++)
+{
+int mini=i;
+for(int j=i+1; j<n-1; j++)
+{
+if(arr[mini]>arr[j])
+mini=j;
+}
+int data=arr[mini];
+while(i<mini)
+{
+arr[mini]=arr[mini-1];
+mini--;
+}
+arr[i]=data;
+
+}
+
+}
+/*
+time complexity=O(n^2)
+Space-O(1)
+stable-no but we can made stable
+inplace-yes not take extra space
+*/
