@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+// In 0,1 Knapsack in this we take only complete item  or not take item if  we have a bag to fill item maximize the  profit using weight and value array
+
+int knapsackrec( int w[], int val[],int cap, int n)
+{
+    if(n==0 || cap==0)
+        return 0;
+    else if(cap<w[n-1])
+        return knapsackrec(w,val,cap,n-1);
+    else
+        return max((val[n-1]+knapsackrec(w,val,cap-w[n-1],n-1)),knapsackrec(w,val,cap,n-1));
+}
+int knapsack(int w[], int val[], int cap,int n)
+{
+    int dp[n+1][cap+1];
+
+}
+// 5 7 10 10 12 22
+int main()
+{
+    int val[]={60,100,120};
+    int w[]={10,20,30};
+    cout<<knapsackrec(w,val,50,3);
+}
