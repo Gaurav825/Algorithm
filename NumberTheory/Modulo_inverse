@@ -1,0 +1,33 @@
+const int mod=1e9+7;
+int binpow(int a,int b)
+ {
+     int res=1;
+     while(b)
+     {
+         if(b&1)
+         {
+
+             res=1LL*res*a%mod;
+         }
+         a=1LL*a*a%mod;
+         b=b>>1;
+     }
+     return res;
+
+
+ }
+ int inverse(int a)
+ {
+     return binpow(a,mod-2);
+
+
+ }
+ /* proof of algorithm 
+ 1.Finding inverse a and mod should be coprime than Modulo multiplicative inverse exist.
+ a*b=1%mod means that a is modulo multiplicative inverse of b 
+ by fermit little theorem if mod is prime and a is not multiple of mod than
+ a^mod-1=1%mod 
+ by multiply a^-1 so we get (a^mod-2)%mod=a^-1
+ a^-1=(a^mod-2)%mod.
+ 
+ */
