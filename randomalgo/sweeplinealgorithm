@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    // sweep line algorithm
+    vector<int>s={1,3,5,9};
+    vector<int>e={3,7,9,12};
+    // find maximum no. room requred occur all meet one room hold one meet at a time
+    int maxi=*max_element(e.begin(),e.end());
+    vector<int>room(maxi+2,0);
+    for(int i=0; i<s.size();i++)
+    {
+        room[s[i]]++;
+        room[e[i]+1]--;
+    }
+    int r=0;
+    int c=0;
+    for(int x:room)
+    {   c+=x;
+        r=max(r,c);
+    }
+    cout<<r<<endl;
+
+    return 0;
+}
